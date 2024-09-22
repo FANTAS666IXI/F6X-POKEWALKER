@@ -1,0 +1,17 @@
+--- Console Log System Log ---
+[ConsoleLogSystemController] FRM (0) Console Log System Ready!
+[GameController] FRM (0) Starting Game...
+[ConsoleLogSystemExample] FRM (422) Test
+[ConsoleLogSystemExample] FRM (422) Message 1
+[ConsoleLogSystemExample] FRM (422) Message 2
+[ConsoleLogSystemExample] FRM (422) Message 3
+[ConsoleLogSystemExample] FRM (422) Message 4
+[ConsoleLogSystemExample] FRM (422) Message 5
+[ConsoleLogSystemExample] FRM (422) Message 6
+[ConsoleLogSystemExample] FRM (422) Message 7
+[ConsoleLogSystemExample] FRM (422) Message 8
+[ConsoleLogSystemExample] FRM (422) Message 9
+[ConsoleLogSystemExample] FRM (422) Info Level Must Be Between 0 And 2
+[ConsoleLogSystemExample] FRM (422) Info Level Must Be Between 0 And 2
+[ConsoleLogSystemExample] FRM (422) Info Level Must Be Between 0 And 2
+[ConsoleLogSystemExample] FRM (422) Info Level Must Be Between 0 And 2
