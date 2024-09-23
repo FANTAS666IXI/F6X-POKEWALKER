@@ -21,7 +21,7 @@ public class ConsoleLogSystemController : MonoBehaviour
 
     private void InitializeLogFilePath()
     {
-        logFilePath = Path.GetDirectoryName(Application.dataPath) + "/ConsoleLogSystem";
+        logFilePath = Path.GetDirectoryName(Application.persistentDataPath) + "/ConsoleLogSystem";
         if (!Directory.Exists(logFilePath))
             Directory.CreateDirectory(logFilePath);
         logFilePath += "/Log-" + DateTime.Now.ToString("yy-MM-dd-HH-mm") + ".log";
