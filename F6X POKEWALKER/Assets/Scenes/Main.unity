@@ -419,6 +419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pokeball 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7929266748870837593, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9165112992648104601, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -606,6 +610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2666289200669354713, guid: 1e99772f7400d244fb65f892edfb886f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -714,7 +722,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 928176878}
     m_Modifications:
     - target: {fileID: 633307416313548029, guid: b746cc94821908649897733e1df42536, type: 3}
       propertyPath: m_Name
@@ -738,15 +746,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5133271059887508795, guid: b746cc94821908649897733e1df42536, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5133271059887508795, guid: b746cc94821908649897733e1df42536, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5133271059887508795, guid: b746cc94821908649897733e1df42536, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5133271059887508795, guid: b746cc94821908649897733e1df42536, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -894,6 +902,10 @@ PrefabInstance:
     - target: {fileID: 2666289200669354713, guid: 1e99772f7400d244fb65f892edfb886f, type: 3}
       propertyPath: m_Name
       value: Item 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666289200669354713, guid: 1e99772f7400d244fb65f892edfb886f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1097,6 +1109,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671273596}
   m_CullTransparentMesh: 1
+--- !u!1 &736563098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736563099}
+  - component: {fileID: 736563100}
+  m_Layer: 0
+  m_Name: Objects Controller
+  m_TagString: ObjectsController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736563099
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736563098}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928176878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736563100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736563098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda4e7071634dd641a30130b0724364f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &800632414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,11 +1509,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928176877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1308139684}
+  - {fileID: 736563099}
+  - {fileID: 1285898209}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &928176879
@@ -1485,6 +1544,10 @@ PrefabInstance:
     - target: {fileID: 7929266748870837593, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
       propertyPath: m_Name
       value: Pokeball 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929266748870837593, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9165112992648104601, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
       propertyPath: m_Pivot.x
@@ -1768,11 +1831,64 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2666289200669354713, guid: 1e99772f7400d244fb65f892edfb886f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e99772f7400d244fb65f892edfb886f, type: 3}
+--- !u!4 &1285898209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5133271059887508795, guid: b746cc94821908649897733e1df42536, type: 3}
+  m_PrefabInstance: {fileID: 597177774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1308139683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308139684}
+  - component: {fileID: 1308139685}
+  m_Layer: 0
+  m_Name: ScoreController
+  m_TagString: ScoreController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1308139684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308139683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928176878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1308139685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308139683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f51be37947c324f8256b59cc1fc520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1348238962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31380f2d22c7d5744a25fb6b9d89f292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScreen: {fileID: 1884101951}
   consoleLog: 1
   logColor: {r: 0.8666667, g: 0, b: 0, a: 1}
 --- !u!224 &1589834710 stripped
@@ -2088,9 +2205,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1884101950}
+  - component: {fileID: 1884101951}
   m_Layer: 5
   m_Name: Main Screen
-  m_TagString: Untagged
+  m_TagString: MainScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2118,6 +2236,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1884101951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884101949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c964e920f0c39744be539c5f519dbe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consoleLog: 1
+  logColor: {r: 0.8666667, g: 0, b: 0, a: 1}
 --- !u!224 &1935230568 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9165112992648104601, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
@@ -2214,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pokeball 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7929266748870837593, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9165112992648104601, guid: f6e8f5639be96b849b3cbf748fbc8e08, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2304,7 +2440,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 928176878}
-  - {fileID: 597177774}
   - {fileID: 519420032}
   - {fileID: 965629727}
   - {fileID: 877714648}

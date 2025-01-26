@@ -8,8 +8,13 @@
 
 ---
 
+- **CONTROLS :**
+  - **Click : `TAP`**
+
+---
+
 - **STACK :**
-  - **F6X Pokewalker** : `0.4.0`
+  - **F6X Pokewalker** : `0.5.0`
   - **Android** : `8.0`
   - **Unity** : `2022.3.20f1`
   - **Console Log System** : `1.3.0`
@@ -18,4 +23,4 @@
 
 - **CREDITS :**
   - **Author : [FANTAS666X](https://github.com/FANTAS666IXI)**
-  - **Sprites : [FANTAS666X](https://github.com/FANTAS666IXI)**
+  - **Sprites : [FANTAS666X](https://github.com/FANTAS666IXI), [WikiDex](https://www.wikidex.net/wiki/WikiDex)**
