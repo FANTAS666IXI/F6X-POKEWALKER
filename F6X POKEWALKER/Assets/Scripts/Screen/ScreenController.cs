@@ -2,39 +2,67 @@ using UnityEngine;
 
 public class ScreenController : MonoBehaviour
 {
+    private int currentScreen;
+    private int screensQuantity;
+    private GameObject[] screens;
+
     [Header("Console Log Settings")]
     public bool consoleLog;
     public Color logColor;
     private ConsoleLogSystemController consoleLogSystemController;
 
-    private int currentScreen = 0;
-    private GameObject mainScreen;
-
     private void Awake()
     {
         InitializeComponents();
+        InitializeObjects();
+        InitializeVariables();
     }
 
     private void InitializeComponents()
     {
         consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
-        mainScreen = transform.Find("Main Screen").gameObject;
+    }
+
+    private void InitializeObjects()
+    {
+        int screensQuantity = transform.childCount;
+        screens = new GameObject[screensQuantity];
+        for (int i = 0; i < screensQuantity; i++)
+            screens[i] = transform.GetChild(i).gameObject;
+    }
+
+    private void InitializeVariables()
+    {
+        currentScreen = 0;
+        screensQuantity = screens.Length;
     }
 
     private void Start()
     {
-        ActiveScreen(currentScreen);
+        ActivateScreen();
     }
 
-    private void ActiveScreen(int targetScreen)
+    private void ActivateScreen()
     {
-        switch (targetScreen)
-        {
-            case 0:
-                ConsoleLog("Activating Main Screen...");
-                mainScreen.SetActive(true);
-                break;
-        }
+        screens[currentScreen].SetActive(true);
+        ConsoleLog("Activating screen: " + currentScreen.ToString());
+    }
+
+    public void ChangeScreen(int targetScreen)
+    {
+        DeactivateScreen();
+        currentScreen = (currentScreen + targetScreen + screensQuantity) % screensQuantity;
+        ActivateScreen();
+    }
+
+    private void DeactivateScreen()
+    {
+        screens[currentScreen].SetActive(false);
+    }
+
+    public int GetCurrentScreen()
+    {
+        return currentScreen;
     }
 
     private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)

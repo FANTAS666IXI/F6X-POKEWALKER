@@ -14,8 +14,8 @@ public class ObjectsController : MonoBehaviour
     private void InitializeVariables()
     {
         maxObjects = 3;
-        pokeballs = 0;
-        items = 0;
+        pokeballs = 2;
+        items = 1;
     }
 
     public void AddPokeball()

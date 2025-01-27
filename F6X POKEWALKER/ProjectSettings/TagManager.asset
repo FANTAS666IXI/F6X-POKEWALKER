@@ -8,6 +8,7 @@ TagManager:
   - ObjectsController
   - MainScreen
   - ScoreController
+  - ScreenController
   layers:
   - Default
   - TransparentFX
