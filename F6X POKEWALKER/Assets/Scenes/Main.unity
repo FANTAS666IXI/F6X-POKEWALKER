@@ -1034,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2777992326936188413, guid: 92023255e1cf1db40a5ddc64ca3d38d9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4977773609167348135, guid: 92023255e1cf1db40a5ddc64ca3d38d9, type: 3}
       propertyPath: m_Name
@@ -1860,7 +1860,7 @@ GameObject:
   - component: {fileID: 804269676}
   - component: {fileID: 804269675}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Watts Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2479,8 +2479,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 605529462}
   - {fileID: 572970712}
+  - {fileID: 605529462}
   - {fileID: 1929107501}
   m_Father: {fileID: 271317223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3356,7 +3356,7 @@ GameObject:
   - component: {fileID: 1977215783}
   - component: {fileID: 1977215782}
   m_Layer: 5
-  m_Name: Option Title
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,6 +1,7 @@
 # _F6X POKEWALKER_
 
 ![THUMBNAIL](Resources/Img/Thumbnail_1.png)
+
 ![THUMBNAIL](Resources/Img/Thumbnail_2.png)
 
 - **DESCRIPTION :**
@@ -15,7 +16,7 @@
 ---
 
 - **STACK :**
-  - **F6X Pokewalker** : `0.6.0`
+  - **F6X Pokewalker** : `0.7.0`
   - **Android** : `8.0`
   - **Unity** : `2022.3.20f1`
   - **Console Log System** : `1.3.0`

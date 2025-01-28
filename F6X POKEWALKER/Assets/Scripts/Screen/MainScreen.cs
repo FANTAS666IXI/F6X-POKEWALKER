@@ -49,19 +49,14 @@ public class MainScreen : MonoBehaviour, IScreen
             items[i] = transform.Find("Objects Bar").Find($"Item {i + 1}").Find("Item Image").gameObject;
     }
 
-    private void Start()
-    {
-        LoadObjects();
-    }
-
-    private void Update()
-    {
-        LoadScore();
-    }
-
     private void InitializeScore()
     {
         score = transform.Find("Score").GetComponent<Text>();
+    }
+
+    private void Start()
+    {
+        LoadObjects();
     }
 
     public void LoadObjects()
@@ -96,13 +91,15 @@ public class MainScreen : MonoBehaviour, IScreen
             item.SetActive(false);
     }
 
-    public void LoadScore()
+    private void Update()
+    {
+        LoadScore();
+    }
+
+    private void LoadScore()
     {
         int currentScore = scoreController.GetScore();
-        if (currentScore > 999)
-            score.text = FormatScore(currentScore);
-        else
-            score.text = currentScore.ToString();
+        score.text = FormatScore(currentScore);
     }
 
     private string FormatScore(int score)
