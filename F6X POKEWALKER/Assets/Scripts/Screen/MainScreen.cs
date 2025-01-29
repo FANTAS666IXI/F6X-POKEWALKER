@@ -1,4 +1,3 @@
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -93,7 +92,7 @@ public class MainScreen : MonoBehaviour, IScreen
 
     private void LoadScore()
     {
-        int currentScore = currencysController.GetScore();
+        int currentScore = currencysController.GetSteps();
         score.text = currencysController.FormatNumber(currentScore);
     }
 

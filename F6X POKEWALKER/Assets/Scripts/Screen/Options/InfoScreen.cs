@@ -60,7 +60,7 @@ public class InfoScreen : MonoBehaviour, IScreen
 
     private void SetCurrencysTexts()
     {
-        score.text = "SCORE : " + currencysController.FormatNumber(currencysController.GetScore());
+        score.text = "STEPS : " + currencysController.FormatNumber(currencysController.GetSteps());
         watts.text = "WATTS : " + currencysController.FormatNumber(currencysController.GetWatts());
     }
 
@@ -98,7 +98,7 @@ public class InfoScreen : MonoBehaviour, IScreen
             }
             if (activateCheat)
             {
-                currencysController.SetScore(999999);
+                currencysController.SetSteps(999999);
                 currencysController.SetWatts(999999);
                 ConsoleLog("Cheat Activated!");
             }

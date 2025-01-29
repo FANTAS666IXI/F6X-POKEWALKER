@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class CurrencysController : MonoBehaviour
 {
-    private int score;
+    private int steps;
     private int watts;
+    private int stepsForWatt;
     private int untilNextWatt;
 
     private void Awake()
@@ -14,21 +15,22 @@ public class CurrencysController : MonoBehaviour
 
     private void InitializeVariables()
     {
-        score = 0;
+        steps = 0;
         watts = 0;
-        untilNextWatt = 20;
+        stepsForWatt = 10;
+        untilNextWatt = stepsForWatt;
     }
 
     public void AddCurrencys()
     {
-        AddScore();
+        AddStep();
         AddProgressWatt();
     }
 
-    private void AddScore()
+    private void AddStep()
     {
-        if (score < 999999)
-            score++;
+        if (steps < 999999)
+            steps++;
     }
 
     private void AddProgressWatt()
@@ -37,7 +39,7 @@ public class CurrencysController : MonoBehaviour
             untilNextWatt--;
         if (untilNextWatt == 0)
         {
-            untilNextWatt = 20;
+            untilNextWatt = stepsForWatt;
             watts++;
         }
     }
@@ -56,9 +58,9 @@ public class CurrencysController : MonoBehaviour
         return formattedNumber.ToString();
     }
 
-    public void SetScore(int newScore)
+    public void SetSteps(int newSteps)
     {
-        score = newScore;
+        steps = newSteps;
     }
 
     public void SetWatts(int newWatts)
@@ -66,9 +68,9 @@ public class CurrencysController : MonoBehaviour
         watts = newWatts;
     }
 
-    public int GetScore()
+    public int GetSteps()
     {
-        return score;
+        return steps;
     }
 
     public int GetWatts()

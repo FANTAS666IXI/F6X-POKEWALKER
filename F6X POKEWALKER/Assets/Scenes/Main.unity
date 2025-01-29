@@ -3155,6 +3155,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 736563099}
+  - {fileID: 1371209114}
   - {fileID: 1308139684}
   - {fileID: 1285898209}
   m_Father: {fileID: 0}
@@ -4411,6 +4412,53 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2202951177883756667, guid: 2b44f6f51422ce640ac70bcea929559b, type: 3}
   m_PrefabInstance: {fileID: 1371172710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1371209113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371209114}
+  - component: {fileID: 1371209115}
+  m_Layer: 0
+  m_Name: PedometerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1371209114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371209113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 928176878}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371209115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371209113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea6a089082c38745bf97001abc8ebf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepText: {fileID: 2037213533}
+  stepThreshold: 1.2
+  resetTime: 0.5
 --- !u!1 &1393523532
 GameObject:
   m_ObjectHideFlags: 0

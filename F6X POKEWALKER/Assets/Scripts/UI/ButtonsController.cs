@@ -31,21 +31,18 @@ public class ButtonsController : MonoBehaviour
     public void ButtonLeft()
     {
         lastButton = "LEFT";
-        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].LeftButton();
     }
 
     public void ButtonCenter()
     {
         lastButton = "CENTER";
-        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].CenterButton();
     }
 
     public void ButtonRight()
     {
         lastButton = "RIGHT";
-        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].RightButton();
     }
 

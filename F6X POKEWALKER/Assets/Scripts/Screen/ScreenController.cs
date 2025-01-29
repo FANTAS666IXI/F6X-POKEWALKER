@@ -3,7 +3,6 @@ using UnityEngine;
 public class ScreenController : MonoBehaviour
 {
     private int currentScreen;
-    private int screensQuantity;
     private int mainScreensQuantity;
     private GameObject[] screens;
 
@@ -35,7 +34,6 @@ public class ScreenController : MonoBehaviour
     private void InitializeVariables()
     {
         currentScreen = 0;
-        screensQuantity = screens.Length;
         mainScreensQuantity = 2;
     }
 
