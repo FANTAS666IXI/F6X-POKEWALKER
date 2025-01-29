@@ -1,8 +1,13 @@
 # _F6X POKEWALKER_
 
 ![THUMBNAIL](Resources/Img/Thumbnail_1.png)
-
 ![THUMBNAIL](Resources/Img/Thumbnail_2.png)
+![THUMBNAIL](Resources/Img/Thumbnail_3.png)
+![THUMBNAIL](Resources/Img/Thumbnail_4.png)
+![THUMBNAIL](Resources/Img/Thumbnail_5.png)
+![THUMBNAIL](Resources/Img/Thumbnail_6.png)
+![THUMBNAIL](Resources/Img/Thumbnail_7.png)
+![THUMBNAIL](Resources/Img/Thumbnail_8.png)
 
 - **DESCRIPTION :**
   - **Pokewalker game like in Unity.**
@@ -16,7 +21,7 @@
 ---
 
 - **STACK :**
-  - **F6X Pokewalker** : `0.7.0`
+  - **F6X Pokewalker** : `0.8.0`
   - **Android** : `8.0`
   - **Unity** : `2022.3.20f1`
   - **Console Log System** : `1.3.0`

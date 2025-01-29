@@ -7,8 +7,9 @@ TagManager:
   - ConsoleLogSystem
   - ObjectsController
   - MainScreen
-  - ScoreController
   - ScreenController
+  - ButtonsController
+  - CurrencysController
   layers:
   - Default
   - TransparentFX

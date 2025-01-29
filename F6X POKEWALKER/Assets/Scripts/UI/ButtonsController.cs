@@ -1,10 +1,11 @@
 using UnityEngine;
 
-public class Buttons : MonoBehaviour
+public class ButtonsController : MonoBehaviour
 {
-    private IScreen[] screens;
     private ScreenController screenController;
-    private ScoreController scoreController;
+    private CurrencysController currencysController;
+    private string lastButton;
+    private IScreen[] screens;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class Buttons : MonoBehaviour
     {
         InitializeScreens();
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
-        scoreController = GameObject.FindGameObjectWithTag("ScoreController").GetComponent<ScoreController>();
+        currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
     }
 
     private void InitializeScreens()
@@ -29,19 +30,27 @@ public class Buttons : MonoBehaviour
 
     public void ButtonLeft()
     {
-        scoreController.AddScore();
+        lastButton = "LEFT";
+        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].LeftButton();
     }
 
     public void ButtonCenter()
     {
-        scoreController.AddScore();
+        lastButton = "CENTER";
+        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].CenterButton();
     }
 
     public void ButtonRight()
     {
-        scoreController.AddScore();
+        lastButton = "RIGHT";
+        currencysController.AddCurrencys();
         screens[screenController.GetCurrentScreen()].RightButton();
+    }
+
+    public string GetLastButton()
+    {
+        return lastButton;
     }
 }

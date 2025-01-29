@@ -4,6 +4,7 @@ public class ScreenController : MonoBehaviour
 {
     private int currentScreen;
     private int screensQuantity;
+    private int mainScreensQuantity;
     private GameObject[] screens;
 
     [Header("Console Log Settings")]
@@ -35,6 +36,7 @@ public class ScreenController : MonoBehaviour
     {
         currentScreen = 0;
         screensQuantity = screens.Length;
+        mainScreensQuantity = 2;
     }
 
     private void Start()
@@ -51,13 +53,20 @@ public class ScreenController : MonoBehaviour
     public void ChangeScreen(int targetScreen)
     {
         DeactivateScreen();
-        currentScreen = (currentScreen + targetScreen + screensQuantity) % screensQuantity;
+        currentScreen = (currentScreen + targetScreen + mainScreensQuantity) % mainScreensQuantity;
         ActivateScreen();
     }
 
     private void DeactivateScreen()
     {
         screens[currentScreen].SetActive(false);
+    }
+
+    public void SelectScreen(int targetScreen)
+    {
+        DeactivateScreen();
+        currentScreen = targetScreen;
+        ActivateScreen();
     }
 
     public int GetCurrentScreen()

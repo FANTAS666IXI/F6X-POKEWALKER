@@ -6,7 +6,7 @@ public class MainScreen : MonoBehaviour, IScreen
 {
     private ScreenController screenController;
     private ObjectsController objectsController;
-    private ScoreController scoreController;
+    private CurrencysController currencysController;
     private Text score;
     private GameObject[] pokeballs = new GameObject[3];
     private GameObject[] items = new GameObject[3];
@@ -26,7 +26,7 @@ public class MainScreen : MonoBehaviour, IScreen
     {
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
         objectsController = GameObject.FindGameObjectWithTag("ObjectsController").GetComponent<ObjectsController>();
-        scoreController = GameObject.FindGameObjectWithTag("ScoreController").GetComponent<ScoreController>();
+        currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
         consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
@@ -98,22 +98,8 @@ public class MainScreen : MonoBehaviour, IScreen
 
     private void LoadScore()
     {
-        int currentScore = scoreController.GetScore();
-        score.text = FormatScore(currentScore);
-    }
-
-    private string FormatScore(int score)
-    {
-        StringBuilder formattedScore = new();
-        string scoreString = score.ToString();
-        int length = scoreString.Length;
-        for (int i = 0; i < length; i++)
-        {
-            if (i > 0 && (length - i) % 3 == 0)
-                formattedScore.Append(".");
-            formattedScore.Append(scoreString[i]);
-        }
-        return formattedScore.ToString();
+        int currentScore = currencysController.GetScore();
+        score.text = currencysController.FormatNumber(currentScore);
     }
 
     public void LeftButton()
