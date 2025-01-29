@@ -56,6 +56,16 @@ public class CurrencysController : MonoBehaviour
         return formattedNumber.ToString();
     }
 
+    public void SetScore(int newScore)
+    {
+        score = newScore;
+    }
+
+    public void SetWatts(int newWatts)
+    {
+        watts = newWatts;
+    }
+
     public int GetScore()
     {
         return score;

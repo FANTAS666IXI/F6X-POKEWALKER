@@ -21,7 +21,7 @@
 ---
 
 - **STACK :**
-  - **F6X Pokewalker** : `0.8.0`
+  - **F6X Pokewalker** : `0.9.0`
   - **Android** : `8.0`
   - **Unity** : `2022.3.20f1`
   - **Console Log System** : `1.3.0`

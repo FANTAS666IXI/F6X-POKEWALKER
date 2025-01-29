@@ -27,6 +27,7 @@ public class MainScreen : MonoBehaviour, IScreen
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
         objectsController = GameObject.FindGameObjectWithTag("ObjectsController").GetComponent<ObjectsController>();
         currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
+        score = transform.Find("Score").GetComponent<Text>();
         consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
@@ -34,7 +35,6 @@ public class MainScreen : MonoBehaviour, IScreen
     {
         InitializePokeballs();
         InitializeItems();
-        InitializeScore();
     }
 
     private void InitializePokeballs()
@@ -47,11 +47,6 @@ public class MainScreen : MonoBehaviour, IScreen
     {
         for (int i = 0; i < items.Length; i++)
             items[i] = transform.Find("Objects Bar").Find($"Item {i + 1}").Find("Item Image").gameObject;
-    }
-
-    private void InitializeScore()
-    {
-        score = transform.Find("Score").GetComponent<Text>();
     }
 
     private void Start()
