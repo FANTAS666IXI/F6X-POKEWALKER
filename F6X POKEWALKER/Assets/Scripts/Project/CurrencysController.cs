@@ -90,6 +90,18 @@ public class CurrencysController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public bool ExpendWatts(int wattsExpended)
+    {
+        if (wattsExpended <= watts)
+        {
+            watts -= wattsExpended;
+            PlayerPrefs.SetInt("WATTS", watts);
+            PlayerPrefs.Save();
+            return true;
+        }
+        return false;
+    }
+
     public int GetSteps()
     {
         return steps;

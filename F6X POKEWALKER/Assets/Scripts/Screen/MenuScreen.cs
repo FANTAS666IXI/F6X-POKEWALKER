@@ -8,10 +8,21 @@ public class MenuScreen : MonoBehaviour, IScreen
     private CurrencysController currencysController;
     private int currentOption;
     private int optionsQuantity;
-    private string[] optionsTitles;
+    private OptionData[] optionsData;
     private Text title;
     private Text watts;
     private GameObject[] options;
+
+    private struct OptionData
+    {
+        public string Title;
+        public int Price;
+        public OptionData(string title, int price)
+        {
+            Title = title;
+            Price = price;
+        }
+    }
 
     private void Awake()
     {
@@ -33,7 +44,15 @@ public class MenuScreen : MonoBehaviour, IScreen
     {
         currentOption = 2;
         optionsQuantity = 6;
-        optionsTitles = new string[] { "LABORATORY", "TEAM", "POKEMONS", "ITEMS", "SETTINGS", "INFO" };
+        optionsData = new OptionData[]
+        {
+            new OptionData("LABORATORY", 0),
+            new OptionData("TEAM", 0),
+            new OptionData("POKEMONS", 10),
+            new OptionData("ITEMS", 3),
+            new OptionData("SETTINGS", 0),
+            new OptionData("INFO", 0)
+        };
     }
 
     private void InitializeOptions()
@@ -68,7 +87,7 @@ public class MenuScreen : MonoBehaviour, IScreen
 
     private void ActivateOption()
     {
-        title.text = optionsTitles[currentOption];
+        title.text = optionsData[currentOption].Title;
         options[currentOption].SetActive(true);
     }
 
@@ -79,7 +98,7 @@ public class MenuScreen : MonoBehaviour, IScreen
 
     private void LoadWatts()
     {
-        watts.text = (((currentOption + 1) * 10).ToString() + " W / " + currencysController.FormatNumber(currencysController.GetWatts()) + " W");
+        watts.text = (optionsData[currentOption].Price.ToString() + " W / " + currencysController.FormatNumber(currencysController.GetWatts()) + " W");
     }
 
     public void LeftButton()
@@ -92,7 +111,8 @@ public class MenuScreen : MonoBehaviour, IScreen
 
     public void CenterButton()
     {
-        screenController.SelectScreen(currentOption + 2);
+        if (currencysController.ExpendWatts(optionsData[currentOption].Price))
+            screenController.SelectScreen(currentOption + 2);
     }
 
     public void RightButton()
