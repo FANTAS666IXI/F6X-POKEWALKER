@@ -6,9 +6,21 @@ public class ObjectsController : MonoBehaviour
     private int pokeballs;
     private int items;
 
+    [Header("Console Log Settings")]
+    public bool consoleLog;
+    public Color logColor;
+    private ConsoleLogSystemController consoleLogSystemController;
+
     private void Awake()
     {
         InitializeVariables();
+        InitializeComponents();
+        ConsoleLog("Starting Objects Controller...", true);
+    }
+
+    private void InitializeComponents()
+    {
+        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
     private void InitializeVariables()
@@ -50,5 +62,11 @@ public class ObjectsController : MonoBehaviour
     public int GetItems()
     {
         return items;
+    }
+
+    private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)
+    {
+        if (consoleLog)
+            consoleLogSystemController.ConsoleLogSystem(message, logColor, showFrame, infoLevel);
     }
 }

@@ -8,15 +8,22 @@ public class PedometerController : MonoBehaviour
     private float lastStepTime;
     private Vector3 previousAcceleration;
 
+    [Header("Console Log Settings")]
+    public bool consoleLog;
+    public Color logColor;
+    private ConsoleLogSystemController consoleLogSystemController;
+
     private void Awake()
     {
         InitializeComponents();
         InitializeVariables();
+        ConsoleLog("Starting Pedometer Controller...", true);
     }
 
     private void InitializeComponents()
     {
         currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
+        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
     private void InitializeVariables()
@@ -42,5 +49,11 @@ public class PedometerController : MonoBehaviour
             lastStepTime = Time.time;
         }
         previousAcceleration = acceleration;
+    }
+
+    private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)
+    {
+        if (consoleLog)
+            consoleLogSystemController.ConsoleLogSystem(message, logColor, showFrame, infoLevel);
     }
 }

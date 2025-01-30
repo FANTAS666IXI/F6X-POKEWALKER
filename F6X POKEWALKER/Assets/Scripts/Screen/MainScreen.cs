@@ -13,7 +13,6 @@ public class MainScreen : MonoBehaviour, IScreen
     [Header("Console Log Settings")]
     public bool consoleLog;
     public Color logColor;
-    private ConsoleLogSystemController consoleLogSystemController;
 
     private void Awake()
     {
@@ -27,7 +26,6 @@ public class MainScreen : MonoBehaviour, IScreen
         objectsController = GameObject.FindGameObjectWithTag("ObjectsController").GetComponent<ObjectsController>();
         currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
         score = transform.Find("Score").GetComponent<Text>();
-        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
     private void InitializeObjects()
@@ -109,11 +107,5 @@ public class MainScreen : MonoBehaviour, IScreen
     public void RightButton()
     {
         screenController.ChangeScreen(1);
-    }
-
-    private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)
-    {
-        if (consoleLog)
-            consoleLogSystemController.ConsoleLogSystem(message, logColor, showFrame, infoLevel);
     }
 }

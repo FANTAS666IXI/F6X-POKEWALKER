@@ -7,6 +7,7 @@ public class InfoScreen : MonoBehaviour, IScreen
     // Developement Feature
     private List<string> inputSequence;
     private string[] cheatCode;
+    // Developement Feature
 
     private ScreenController screenController;
     private ButtonsController buttonsController;

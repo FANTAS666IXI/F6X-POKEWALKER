@@ -13,14 +13,15 @@ public class ScreenController : MonoBehaviour
 
     private void Awake()
     {
-        InitializeComponents();
-        InitializeObjects();
         InitializeVariables();
+        InitializeComponents();
+        ConsoleLog("Starting Screen Controller...", true);
     }
 
     private void InitializeComponents()
     {
         consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
+        InitializeObjects();
     }
 
     private void InitializeObjects()

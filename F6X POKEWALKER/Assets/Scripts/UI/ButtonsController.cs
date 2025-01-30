@@ -6,15 +6,22 @@ public class ButtonsController : MonoBehaviour
     private string lastButton;
     private IScreen[] screens;
 
+    [Header("Console Log Settings")]
+    public bool consoleLog;
+    public Color logColor;
+    private ConsoleLogSystemController consoleLogSystemController;
+
     private void Awake()
     {
         InitializeComponents();
+        ConsoleLog("Starting Buttons Controller...", true);
     }
 
     private void InitializeComponents()
     {
-        InitializeScreens();
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
+        InitializeScreens();
+        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
     private void InitializeScreens()
@@ -47,5 +54,11 @@ public class ButtonsController : MonoBehaviour
     public string GetLastButton()
     {
         return lastButton;
+    }
+
+    private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)
+    {
+        if (consoleLog)
+            consoleLogSystemController.ConsoleLogSystem(message, logColor, showFrame, infoLevel);
     }
 }

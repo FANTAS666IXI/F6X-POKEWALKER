@@ -1,4 +1,3 @@
-using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +7,7 @@ public class MenuScreen : MonoBehaviour, IScreen
     private ButtonsController buttonsController;
     private CurrencysController currencysController;
     private int currentOption;
+    private int optionsQuantity;
     private string[] optionsTitles;
     private Text title;
     private Text watts;
@@ -32,14 +32,15 @@ public class MenuScreen : MonoBehaviour, IScreen
     private void InitializeVariables()
     {
         currentOption = 2;
+        optionsQuantity = 6;
         optionsTitles = new string[] { "LABORATORY", "TEAM", "POKEMONS", "ITEMS", "SETTINGS", "INFO" };
     }
 
     private void InitializeOptions()
     {
         GameObject menu = transform.Find("Menu").gameObject;
-        options = new GameObject[6];
-        for (int i = 0; i < 6; i++)
+        options = new GameObject[optionsQuantity];
+        for (int i = 0; i < optionsQuantity; i++)
             options[i] = menu.transform.GetChild(i).gameObject.transform.Find("Option Arrow").gameObject;
     }
 
@@ -96,7 +97,7 @@ public class MenuScreen : MonoBehaviour, IScreen
 
     public void RightButton()
     {
-        if (currentOption < 5)
+        if (currentOption < optionsQuantity - 1)
             ChangeOption(1);
         else
             screenController.ChangeScreen(1);
