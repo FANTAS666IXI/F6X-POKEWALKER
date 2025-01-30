@@ -3,7 +3,6 @@ using UnityEngine;
 public class ButtonsController : MonoBehaviour
 {
     private ScreenController screenController;
-    private CurrencysController currencysController;
     private string lastButton;
     private IScreen[] screens;
 
@@ -16,7 +15,6 @@ public class ButtonsController : MonoBehaviour
     {
         InitializeScreens();
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
-        currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
     }
 
     private void InitializeScreens()

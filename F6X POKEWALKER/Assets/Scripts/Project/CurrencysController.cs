@@ -15,9 +15,9 @@ public class CurrencysController : MonoBehaviour
 
     private void InitializeVariables()
     {
-        steps = 0;
-        watts = 0;
-        stepsForWatt = 10;
+        steps = PlayerPrefs.GetInt("STEPS", 0);
+        watts = PlayerPrefs.GetInt("WATTS", 0);
+        stepsForWatt = 5;
         untilNextWatt = stepsForWatt;
     }
 
@@ -30,7 +30,11 @@ public class CurrencysController : MonoBehaviour
     private void AddStep()
     {
         if (steps < 999999)
+        {
             steps++;
+            PlayerPrefs.SetInt("STEPS", steps);
+            PlayerPrefs.Save();
+        }
     }
 
     private void AddProgressWatt()
@@ -41,6 +45,8 @@ public class CurrencysController : MonoBehaviour
         {
             untilNextWatt = stepsForWatt;
             watts++;
+            PlayerPrefs.SetInt("WATTS", watts);
+            PlayerPrefs.Save();
         }
     }
 
@@ -61,11 +67,15 @@ public class CurrencysController : MonoBehaviour
     public void SetSteps(int newSteps)
     {
         steps = newSteps;
+        PlayerPrefs.SetInt("STEPS", steps);
+        PlayerPrefs.Save();
     }
 
     public void SetWatts(int newWatts)
     {
         watts = newWatts;
+        PlayerPrefs.SetInt("WATTS", watts);
+        PlayerPrefs.Save();
     }
 
     public int GetSteps()
