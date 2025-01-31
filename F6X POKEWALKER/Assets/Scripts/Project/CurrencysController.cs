@@ -52,13 +52,15 @@ public class CurrencysController : MonoBehaviour
     private void AddProgressWatt()
     {
         if (watts < 999999)
-            untilNextWatt--;
-        if (untilNextWatt == 0)
         {
-            untilNextWatt = stepsForWatt;
-            watts++;
-            PlayerPrefs.SetInt("WATTS", watts);
-            PlayerPrefs.Save();
+            untilNextWatt--;
+            if (untilNextWatt == 0)
+            {
+                untilNextWatt = stepsForWatt;
+                watts++;
+                PlayerPrefs.SetInt("WATTS", watts);
+                PlayerPrefs.Save();
+            }
         }
     }
 

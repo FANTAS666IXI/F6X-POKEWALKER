@@ -30,16 +30,6 @@ public class MenuScreen : MonoBehaviour, IScreen
         InitializeComponents();
     }
 
-    private void InitializeComponents()
-    {
-        screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
-        buttonsController = GameObject.FindGameObjectWithTag("ButtonsController").GetComponent<ButtonsController>();
-        currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
-        title = transform.Find("Header").transform.Find("Center").transform.Find("Title").GetComponent<Text>();
-        watts = transform.Find("Watts").transform.Find("Watts Text").GetComponent<Text>();
-        InitializeOptions();
-    }
-
     private void InitializeVariables()
     {
         currentOption = 2;
@@ -53,6 +43,16 @@ public class MenuScreen : MonoBehaviour, IScreen
             new OptionData("SETTINGS", 0),
             new OptionData("INFO", 0)
         };
+    }
+
+    private void InitializeComponents()
+    {
+        screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
+        buttonsController = GameObject.FindGameObjectWithTag("ButtonsController").GetComponent<ButtonsController>();
+        currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
+        title = transform.Find("Header").transform.Find("Center").transform.Find("Title").GetComponent<Text>();
+        watts = transform.Find("Watts").transform.Find("Watts Text").GetComponent<Text>();
+        InitializeOptions();
     }
 
     private void InitializeOptions()

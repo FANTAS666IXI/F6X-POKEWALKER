@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class ObjectsController : MonoBehaviour
+public class TeamController : MonoBehaviour
 {
     private int maxObjects;
-    private int pokeballs;
+    private int pokemons;
     private int items;
 
     [Header("Console Log Settings")]
@@ -15,7 +15,7 @@ public class ObjectsController : MonoBehaviour
     {
         InitializeVariables();
         InitializeComponents();
-        ConsoleLog("Starting Objects Controller...", true);
+        ConsoleLog("Starting Team Controller...", true);
     }
 
     private void InitializeComponents()
@@ -26,37 +26,36 @@ public class ObjectsController : MonoBehaviour
     private void InitializeVariables()
     {
         maxObjects = 3;
-        pokeballs = 2;
+        pokemons = PlayerPrefs.GetInt("POKEMONS", 0);
         items = 1;
     }
 
-    public void AddPokeball()
+    public void AddPokemon()
     {
-        if (pokeballs < maxObjects)
-            pokeballs++;
+        if (pokemons < maxObjects)
+        {
+            pokemons++;
+            PlayerPrefs.SetInt("POKEMONS", pokemons);
+            PlayerPrefs.Save();
+        }
     }
 
-    public void RestPokeball()
+    public void SetPokemons(int targetPokemons)
     {
-        if (pokeballs > 0)
-            pokeballs--;
+        pokemons = targetPokemons;
+        PlayerPrefs.SetInt("POKEMONS", pokemons);
+        PlayerPrefs.Save();
     }
 
-    public int GetPokeballs()
+    public int GetPokemons()
     {
-        return pokeballs;
+        return pokemons;
     }
 
     public void AddItem()
     {
         if (items < maxObjects)
             items++;
-    }
-
-    public void RestItem()
-    {
-        if (items > 0)
-            items--;
     }
 
     public int GetItems()

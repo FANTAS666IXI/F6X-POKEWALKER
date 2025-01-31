@@ -6,11 +6,13 @@ public class InfoScreen : MonoBehaviour, IScreen
 {
     // Developement Feature
     private List<string> inputSequence;
-    private string[] cheatCode;
+    private string[] cheatCode1;
+    private string[] cheatCode2;
     // Developement Feature
 
     private ScreenController screenController;
     private ButtonsController buttonsController;
+    private TeamController teamController;
     private CurrencysController currencysController;
     private Text score;
     private Text watts;
@@ -31,6 +33,7 @@ public class InfoScreen : MonoBehaviour, IScreen
     {
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
         buttonsController = GameObject.FindGameObjectWithTag("ButtonsController").GetComponent<ButtonsController>();
+        teamController = GameObject.FindGameObjectWithTag("TeamController").GetComponent<TeamController>();
         currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
         score = transform.Find("Score").GetComponent<Text>();
         watts = transform.Find("Watts").GetComponent<Text>();
@@ -41,7 +44,8 @@ public class InfoScreen : MonoBehaviour, IScreen
     private void InitializeCheat()
     {
         inputSequence = new List<string>();
-        cheatCode = new string[] { "LEFT", "RIGHT", "LEFT", "RIGHT", "CENTER" };
+        cheatCode1 = new string[] { "LEFT", "RIGHT", "LEFT", "RIGHT", "CENTER" };
+        cheatCode2 = new string[] { "LEFT", "LEFT", "RIGHT", "RIGHT", "CENTER" };
     }
 
     private void Start()
@@ -67,41 +71,68 @@ public class InfoScreen : MonoBehaviour, IScreen
 
     public void LeftButton()
     {
-        CheckCheat();
+        CheckCheats();
     }
 
     public void CenterButton()
     {
-        CheckCheat();
+        CheckCheats();
         screenController.SelectScreen(0);
     }
 
     public void RightButton()
     {
-        CheckCheat();
+        CheckCheats();
     }
 
-    private void CheckCheat()
+    private void CheckCheats()
     {
-        if (inputSequence.Count >= 5)
-            inputSequence.RemoveAt(0);
         inputSequence.Add(buttonsController.GetLastButton());
-        bool activateCheat = true;
-        if (inputSequence.Count == 5)
+        if (inputSequence.Count > 5)
+            inputSequence.RemoveAt(0);
+        CheckCheat1();
+        CheckCheat2();
+    }
+
+    private void CheckCheat1()
+    {
+        bool activateCheat1 = true;
+        if (inputSequence.Count >= cheatCode1.Length)
         {
-            for (int i = 0; i < cheatCode.Length; i++)
+            for (int i = 0; i < cheatCode1.Length; i++)
             {
-                if (inputSequence[i] != cheatCode[i])
+                if (inputSequence[i] != cheatCode1[i])
                 {
-                    activateCheat = false;
+                    activateCheat1 = false;
                     break;
                 }
             }
-            if (activateCheat)
+            if (activateCheat1)
             {
                 currencysController.SetSteps(999999);
                 currencysController.SetWatts(999999);
-                ConsoleLog("Cheat Activated!");
+                ConsoleLog("Cheat 1 Activated!");
+            }
+        }
+    }
+
+    private void CheckCheat2()
+    {
+        bool activateCheat2 = true;
+        if (inputSequence.Count >= cheatCode2.Length)
+        {
+            for (int i = 0; i < cheatCode2.Length; i++)
+            {
+                if (inputSequence[i] != cheatCode2[i])
+                {
+                    activateCheat2 = false;
+                    break;
+                }
+            }
+            if (activateCheat2)
+            {
+                teamController.SetPokemons(3);
+                ConsoleLog("Cheat 2 Activated!");
             }
         }
     }

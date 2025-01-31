@@ -13,6 +13,7 @@ public class TeamScreen : MonoBehaviour, IScreen
     {
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
     }
+
     public void LeftButton()
     {
         // Button without functionality in this screen.

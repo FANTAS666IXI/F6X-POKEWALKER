@@ -5,11 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ConsoleLogSystem
-  - ObjectsController
   - MainScreen
   - ScreenController
   - ButtonsController
   - CurrencysController
+  - TeamController
   layers:
   - Default
   - TransparentFX

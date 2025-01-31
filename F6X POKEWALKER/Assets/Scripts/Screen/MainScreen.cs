@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class MainScreen : MonoBehaviour, IScreen
 {
     private ScreenController screenController;
-    private ObjectsController objectsController;
+    private TeamController teamController;
     private CurrencysController currencysController;
     private Text score;
-    private GameObject[] pokeballs = new GameObject[3];
+    private GameObject[] pokemons = new GameObject[3];
     private GameObject[] items = new GameObject[3];
 
     [Header("Console Log Settings")]
@@ -23,21 +23,21 @@ public class MainScreen : MonoBehaviour, IScreen
     private void InitializeComponents()
     {
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
-        objectsController = GameObject.FindGameObjectWithTag("ObjectsController").GetComponent<ObjectsController>();
+        teamController = GameObject.FindGameObjectWithTag("TeamController").GetComponent<TeamController>();
         currencysController = GameObject.FindGameObjectWithTag("CurrencysController").GetComponent<CurrencysController>();
         score = transform.Find("Score").GetComponent<Text>();
     }
 
     private void InitializeObjects()
     {
-        InitializePokeballs();
+        InitializePokemons();
         InitializeItems();
     }
 
-    private void InitializePokeballs()
+    private void InitializePokemons()
     {
-        for (int i = 0; i < pokeballs.Length; i++)
-            pokeballs[i] = transform.Find("Objects Bar").Find($"Pokeball {i + 1}").Find("Pokeball Image").gameObject;
+        for (int i = 0; i < pokemons.Length; i++)
+            pokemons[i] = transform.Find("Objects Bar").Find($"Pokeball {i + 1}").Find("Pokeball Image").gameObject;
     }
 
     private void InitializeItems()
@@ -46,34 +46,34 @@ public class MainScreen : MonoBehaviour, IScreen
             items[i] = transform.Find("Objects Bar").Find($"Item {i + 1}").Find("Item Image").gameObject;
     }
 
-    private void Start()
+    private void OnEnable()
     {
         LoadObjects();
     }
 
     public void LoadObjects()
     {
-        LoadPokeballs();
+        LoadPokemons();
         LoadItems();
     }
 
-    public void LoadPokeballs()
+    public void LoadPokemons()
     {
-        ResetPokeballs();
-        for (int i = 0; i < objectsController.GetPokeballs(); i++)
-            pokeballs[i].SetActive(true);
+        ResetPokemons();
+        for (int i = 0; i < teamController.GetPokemons(); i++)
+            pokemons[i].SetActive(true);
     }
 
-    private void ResetPokeballs()
+    private void ResetPokemons()
     {
-        foreach (var pokeball in pokeballs)
-            pokeball.SetActive(false);
+        foreach (var pokemon in pokemons)
+            pokemon.SetActive(false);
     }
 
     public void LoadItems()
     {
         ResetItems();
-        for (int i = 0; i < objectsController.GetItems(); i++)
+        for (int i = 0; i < teamController.GetItems(); i++)
             items[i].SetActive(true);
     }
 
