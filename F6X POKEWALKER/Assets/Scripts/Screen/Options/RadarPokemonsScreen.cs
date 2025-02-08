@@ -24,6 +24,14 @@ public class RadarPokemonsScreen : MonoBehaviour, IScreen
         InitializeComponents();
     }
 
+    private void InitializeVariables()
+    {
+        currentGrass = 0;
+        grassQuantity = 4;
+        pokemonGrass = 0;
+        searchingPokemon = true;
+    }
+
     private void InitializeComponents()
     {
         screenController = GameObject.FindGameObjectWithTag("ScreenController").GetComponent<ScreenController>();
@@ -39,14 +47,6 @@ public class RadarPokemonsScreen : MonoBehaviour, IScreen
         grassPatchs = new GameObject[grassQuantity];
         for (int i = 0; i < grassQuantity; i++)
             grassPatchs[i] = allgrassPatchs.transform.GetChild(i).gameObject.transform.Find("Grass Arrow").gameObject;
-    }
-
-    private void InitializeVariables()
-    {
-        currentGrass = 0;
-        grassQuantity = 4;
-        pokemonGrass = 0;
-        searchingPokemon = true;
     }
 
     private void OnEnable()
@@ -99,12 +99,6 @@ public class RadarPokemonsScreen : MonoBehaviour, IScreen
         }
     }
 
-    private IEnumerator WaitAndExitScreen()
-    {
-        yield return new WaitForSeconds(3);
-        screenController.SelectScreen(0);
-    }
-
     public void RightButton()
     {
         if (searchingPokemon)
@@ -125,6 +119,12 @@ public class RadarPokemonsScreen : MonoBehaviour, IScreen
             currentGrass = grassQuantity - 1;
         if (currentGrass > grassQuantity - 1)
             currentGrass = 0;
+    }
+
+    private IEnumerator WaitAndExitScreen()
+    {
+        yield return new WaitForSeconds(3);
+        screenController.SelectScreen(0);
     }
 
     private void ConsoleLog(string message = "Test", bool showFrame = false, int infoLevel = 0)

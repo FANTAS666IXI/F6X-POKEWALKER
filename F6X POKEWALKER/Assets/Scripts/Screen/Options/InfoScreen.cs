@@ -132,6 +132,7 @@ public class InfoScreen : MonoBehaviour, IScreen
             if (activateCheat2)
             {
                 teamController.SetPokemons(3);
+                teamController.SetItems(3);
                 ConsoleLog("Cheat 2 Activated!");
             }
         }

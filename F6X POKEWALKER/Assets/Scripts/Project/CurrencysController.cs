@@ -44,9 +44,14 @@ public class CurrencysController : MonoBehaviour
         if (steps < 999999)
         {
             steps++;
-            PlayerPrefs.SetInt("STEPS", steps);
-            PlayerPrefs.Save();
+            SaveSteps();
         }
+    }
+
+    private void SaveSteps()
+    {
+        PlayerPrefs.SetInt("STEPS", steps);
+        PlayerPrefs.Save();
     }
 
     private void AddProgressWatt()
@@ -58,10 +63,15 @@ public class CurrencysController : MonoBehaviour
             {
                 untilNextWatt = stepsForWatt;
                 watts++;
-                PlayerPrefs.SetInt("WATTS", watts);
-                PlayerPrefs.Save();
+                SaveWatts();
             }
         }
+    }
+
+    private void SaveWatts()
+    {
+        PlayerPrefs.SetInt("WATTS", watts);
+        PlayerPrefs.Save();
     }
 
     public string FormatNumber(int number)
@@ -81,15 +91,13 @@ public class CurrencysController : MonoBehaviour
     public void SetSteps(int newSteps)
     {
         steps = newSteps;
-        PlayerPrefs.SetInt("STEPS", steps);
-        PlayerPrefs.Save();
+        SaveSteps();
     }
 
     public void SetWatts(int newWatts)
     {
         watts = newWatts;
-        PlayerPrefs.SetInt("WATTS", watts);
-        PlayerPrefs.Save();
+        SaveWatts();
     }
 
     public bool ExpendWatts(int wattsExpended)
@@ -97,8 +105,7 @@ public class CurrencysController : MonoBehaviour
         if (wattsExpended <= watts)
         {
             watts -= wattsExpended;
-            PlayerPrefs.SetInt("WATTS", watts);
-            PlayerPrefs.Save();
+            SaveWatts();
             return true;
         }
         return false;

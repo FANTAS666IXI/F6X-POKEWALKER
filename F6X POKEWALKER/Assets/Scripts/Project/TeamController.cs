@@ -18,16 +18,16 @@ public class TeamController : MonoBehaviour
         ConsoleLog("Starting Team Controller...", true);
     }
 
-    private void InitializeComponents()
-    {
-        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
-    }
-
     private void InitializeVariables()
     {
         maxObjects = 3;
         pokemons = PlayerPrefs.GetInt("POKEMONS", 0);
-        items = 1;
+        items = PlayerPrefs.GetInt("ITEMS", 0);
+    }
+
+    private void InitializeComponents()
+    {
+        consoleLogSystemController = GameObject.FindGameObjectWithTag("ConsoleLogSystem").GetComponent<ConsoleLogSystemController>();
     }
 
     public void AddPokemon()
@@ -35,16 +35,20 @@ public class TeamController : MonoBehaviour
         if (pokemons < maxObjects)
         {
             pokemons++;
-            PlayerPrefs.SetInt("POKEMONS", pokemons);
-            PlayerPrefs.Save();
+            SavePokemons();
         }
+    }
+
+    private void SavePokemons()
+    {
+        PlayerPrefs.SetInt("POKEMONS", pokemons);
+        PlayerPrefs.Save();
     }
 
     public void SetPokemons(int targetPokemons)
     {
         pokemons = targetPokemons;
-        PlayerPrefs.SetInt("POKEMONS", pokemons);
-        PlayerPrefs.Save();
+        SavePokemons();
     }
 
     public int GetPokemons()
@@ -55,7 +59,22 @@ public class TeamController : MonoBehaviour
     public void AddItem()
     {
         if (items < maxObjects)
+        {
             items++;
+            SaveItems();
+        }
+    }
+
+    private void SaveItems()
+    {
+        PlayerPrefs.SetInt("ITEMS", items);
+        PlayerPrefs.Save();
+    }
+
+    public void SetItems(int targetItems)
+    {
+        items = targetItems;
+        SaveItems();
     }
 
     public int GetItems()
